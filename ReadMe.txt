@@ -44,12 +44,13 @@
 nohup ./baccli rest-server --node=127.0.0.1:26657 --chain-id=bacchain-mainnet-1.0 --laddr=tcp://0.0.0.0:1317 > ~/baccli_rest.log 2>&1 & 
 
 13 升级
-  1 杀掉正在运行的bacd和rest-server
+  1 下载最新的releases版本,解压
+  2 杀掉正在运行的bacd和rest-server
     ps aux | grep bacd | grep -v grep | grep -v log| awk '{print $2}' | xargs   kill -15
     ps aux | grep rest-server | grep -v grep | grep -v log| awk '{print $2}' | xargs   kill -15
-  2 使用最新的可执行文件覆盖bacd 和baccli
+  3 使用最新的可执行文件覆盖bacd 和baccli
     cp v2.0-2/*  {bacd和baccli}的路径
-  3 检查版本号并重启动
+  4 检查版本号并重启动
     ./bacd version && ./baccli version
     ./bacd start
     nohup ./baccli rest-server --node=127.0.0.1:26657 --chain-id=bacchain-mainnet-1.0 --laddr=tcp://0.0.0.0:1317 > ~/baccli_rest.log 2>&1 & 
